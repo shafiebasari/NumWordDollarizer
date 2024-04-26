@@ -1,6 +1,7 @@
 ﻿using System;
+namespace Program;
 
-class NumWordDollarizer
+public class NumWordDollarizer
 {
     static void Main(string[] args)
     {
@@ -9,22 +10,9 @@ class NumWordDollarizer
             Console.WriteLine("Enter a number to convert to dollars:");
             string number = Console.ReadLine();
 
-            if (decimal.TryParse(number, out decimal amount))
-            {
-
-                if (amount > 999999999999999 || amount < 0)
-                {
-                    Console.WriteLine("Error: The number must be between 0 and 999,999,999,999,999");
-                }
-                else
-                {
-                    Console.WriteLine(NumberToDollars(amount));
-                }
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid number.");
-            }
+            
+           Console.WriteLine(NumberToDollars(number));
+            
 
             Console.WriteLine("Press any button to exit or Press R to restart");
             ConsoleKeyInfo input = Console.ReadKey();
@@ -38,13 +26,19 @@ class NumWordDollarizer
         }
     }
 
-    static string NumberToDollars(decimal number)
+    public static string NumberToDollars(string amount)
     {
-        if (number == 0)
-            return "Zero dollar";
+        if (!decimal.TryParse(amount, out decimal number))
+            return "Please enter a valid number.";
 
         if (number < 0)
-            return "Negative amounts cannot be converted.";
+            return "Negative number cannot be converted.";
+
+        if (number > 999999999999999.99m || number < 0)
+            return "Error: The number must be between 0 and 999,999,999,999,999.99.";
+
+        if (number == 0)
+            return "Zero dollar";
 
         long intPart = (long)number;
         int decimalPart = (int)((number - intPart) * 100);
@@ -121,8 +115,8 @@ class NumWordDollarizer
 
         if (number > 0)
         {
-            if (words != "")
-                words += "and ";
+            //if (words != "")
+            //    words += "and ";
 
             if (number < 20)
             {

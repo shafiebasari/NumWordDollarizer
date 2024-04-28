@@ -67,6 +67,38 @@ public class NumWordDollarizerTests
     }
 
     [Fact]
+    public void TestNumberToDollars_PositiveWithDecimalMoreThanTwoUpper()
+    {
+        // Arrange
+        string input = "123.456789";
+        string expectedOutput = "One Hundred Twenty-Three Dollars and Forty-Six Cents";
+
+        // Act
+        string output = NumWordDollarizer.NumberToDollars(input);
+
+        // Assert
+        output.Should().Be(expectedOutput);
+        output.Should().NotBeNull();
+        output.Should().BeOfType<string>();
+    }
+
+    [Fact]
+    public void TestNumberToDollars_PositiveWithDecimalMoreThanTwoLower()
+    {
+        // Arrange
+        string input = "123.454321";
+        string expectedOutput = "One Hundred Twenty-Three Dollars and Forty-Five Cents";
+
+        // Act
+        string output = NumWordDollarizer.NumberToDollars(input);
+
+        // Assert
+        output.Should().Be(expectedOutput);
+        output.Should().NotBeNull();
+        output.Should().BeOfType<string>();
+    }
+
+    [Fact]
     public void TestNumberToDollars_AboveLimit()
     {
         // Arrange

@@ -40,6 +40,8 @@ public class NumWordDollarizer
         if (number == 0)
             return "Zero dollar";
 
+        number = Math.Round(number,2);
+
         long intPart = (long)number;
         int decimalPart = (int)((number - intPart) * 100);
         string words = NumberToWords(intPart) + " Dollar" + (intPart > 1 ? "s" : "");

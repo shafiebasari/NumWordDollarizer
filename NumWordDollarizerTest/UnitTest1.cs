@@ -121,7 +121,7 @@ public class NumWordDollarizerTests
     }
 
     [Fact]
-    public void TestNumberToDollars_NotNunber()
+    public void TestNumberToDollars_NotNumber()
     {
         // Arrange
         string input = "abc123";

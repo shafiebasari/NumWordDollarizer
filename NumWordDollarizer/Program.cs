@@ -35,7 +35,7 @@ public class NumWordDollarizer
             return "Negative number cannot be converted.";
 
         if (number > 999999999999999.99m || number < 0)
-            return "Error: The number must be between 0 and 999,999,999,999,999.99.";
+            return "Error: The number must NOT be more than 999,999,999,999,999.99.";
 
         if (number == 0)
             return "Zero dollar";

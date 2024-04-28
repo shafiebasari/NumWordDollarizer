@@ -108,7 +108,7 @@ public class NumWordDollarizerTests
         string output = NumWordDollarizer.NumberToDollars(input);
 
         // Assert
-        output.Should().Be("Error: The number must be between 0 and 999,999,999,999,999.99.");
+        output.Should().Be("Error: The number must NOT be more than 999,999,999,999,999.99.");
         output.Should().NotBeNull();
         output.Should().BeOfType<string>();
 
